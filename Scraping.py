@@ -8,11 +8,11 @@ import pandas as pd
 def scrape_all():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=True)
-    news_title, news_paragraph = mars_news(browser)
+    news_title, teaser = mars_news(browser)
 
     data = {
       "news_title": news_title,
-      "news_paragraph": news_paragraph,
+      "news_paragraph": teaser,
       "featured_image": featured_image(browser),
       "facts": mars_facts(),
       "last_modified": dt.datetime.now()
