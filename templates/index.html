@@ -9,6 +9,9 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <style>h2 {
+      text-align: center;
+    }</style>
   </head>
   <body>
     <div class="container">
@@ -44,8 +47,19 @@
             <h4>Mars Facts</h4>
             {{ mars.facts | safe }}
           </div>
-        </div>
+        </div> 
       </div>
+        <h2>Mars Hemispheres</h2>
+        {% for image in mars.mars_images %}
+        <div class="col-md-6">
+            <img 
+            src = "{{ image.Img_URL }}"
+            class="img-responsive"
+            alt="Responsive image"/>
+            <h2>{{ image.Img_Title }}</h2>
+        </div>
+        {% endfor %}
+      
     </div>
   </body>
 </html>
