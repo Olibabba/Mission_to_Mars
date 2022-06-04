@@ -10,22 +10,32 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
     <style>h2 {
-      text-align: center;
-    }</style>
+      text-align: center;}
+      table{ 
+            margin-left: auto;
+            margin-right: auto;    
+            }
+      th, td {
+          padding: 10px;
+        }
+      td{
+            column-width: auto;
+      }
+    </style>
   </head>
-  <body>
+  <body style="background-color:#e4dfda">
     <div class="container">
-      <div class="jumbotron text-center">
+      <div class="jumbotron text-center" style="background-color:#d4b483">
           <h1>Mission to Mars</h1>
-          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+          <p><a class="btn btn-info btn-lg active" href="/scrape" role="button">Scrape New Data</a></p>
       </div>
       <!-- Mars News -->
       <div class="row" id="mars-news">
-        <div class="col-md-12"></div>
-          <div class="media">
-            <div class="media-body">
+        <div class="col-md-12">
+          <div class="media lead">
+            <div class="media-body lead">
               <h2>Latest Mars News</h2>
-              <h4 class="media-heading">{{mars.news_title}}</h4>
+              <h4 class="media-heading lead">{{mars.news_title}}</h4>
               <p>{{ mars.news_paragraph }}</p>
             </div>
           </div>
@@ -33,7 +43,7 @@
       </div>
       <!-- Featured Image -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12">
           <h2>Featured Mars Image</h2>
           <img
             src="{{mars.featured_image }}"
@@ -42,8 +52,8 @@
           />
         </div>
         <!-- Mars Facts -->
-        <div class="col-md-4">
-          <div class="row" id="mars-facts">
+        <div class="col-md-4 col-sm-12"> 
+          <div class="text-center" id="mars-facts">
             <h4>Mars Facts</h4>
             {{ mars.facts | safe }}
           </div>
@@ -51,7 +61,7 @@
       </div>
         <h2>Mars Hemispheres</h2>
         {% for image in mars.mars_images %}
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-6">
             <img 
             src = "{{ image.Img_URL }}"
             class="img-responsive"
